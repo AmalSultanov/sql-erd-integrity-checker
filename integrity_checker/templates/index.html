@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Upload Files{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center mb-4">Upload SQL and ERD Files</h2>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="sql_file" class="form-label">SQL
+                            File</label>
+                        <p class="small">*Upload a plain text file with
+                            queries</p>
+                        <input type="file" class="form-control" name="sql_file"
+                               id="sql_file" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="erd_file" class="form-label">ER Diagram
+                            (Mermaid) File</label>
+                        <p class="small">*Upload a plain text file with
+                            commands</p>
+                        <input type="file" class="form-control" name="erd_file"
+                               id="erd_file" required>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
